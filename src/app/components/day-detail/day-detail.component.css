@@ -1,0 +1,8 @@
+.mat-card{
+  height: 300px;
+  width: 200px;
+}
+.mat-card-actions{
+  position: relative;
+  bottom: 10px;
+}

@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig : {
+    apiKey: "AIzaSyCVRG64J_NimZBsmWtI9hJjaz0gUWYsm5M",
+    authDomain: "reactive-calendar-84c64.firebaseapp.com",
+    projectId: "reactive-calendar-84c64",
+    storageBucket: "reactive-calendar-84c64.appspot.com",
+    messagingSenderId: "41994057602",
+    appId: "1:41994057602:web:e2cd2e8a07a737e96bc19b"
+  },
+
 };
 
 /*

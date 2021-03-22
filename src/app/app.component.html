@@ -1,1 +1,37 @@
-<p>HOla</p>
+<app-topbar
+  (next)="onNext()"
+  (previous)="onPrevious()"
+  (setViewMode)="onSetViewMode($event)"
+  (searchChanged)="onSearchChanged($event)"
+>
+  ></app-topbar
+>
+<div class="main" [ngSwitch]="viewMode$ | async">
+  <app-day-view
+    *ngSwitchCase="VIEW_MODE.DAY"
+    [date]="currentDate$ | async"
+    [appointments]="filter"
+    (removeAppointment)="onRemoveAppointment($event)"
+    (addAppointment)="onAddAppointment($event)"
+    (updateAppointment)="onUpdateAppointment($event)"
+  ></app-day-view>
+
+  <app-week-view
+    *ngSwitchCase="VIEW_MODE.WEEK"
+    [year]="currentYear$ | async"
+    [week]="currentWeek$ | async"
+    [appointments]="filter"
+    (removeAppointment)="onRemoveAppointment($event)"
+    (addAppointment)="onAddAppointment($event)"
+    (updateAppointment)="onUpdateAppointment($event)"
+  ></app-week-view>
+  <app-month-view
+    *ngSwitchCase="VIEW_MODE.MONTH"
+    [month]="currentMonth$ | async"
+    [year]="currentYear$ | async"
+    [appointments]="filter"
+    (removeAppointment)="onRemoveAppointment($event)"
+    (addAppointment)="onAddAppointment($event)"
+    (updateAppointment)="onUpdateAppointment($event)"
+  ></app-month-view>
+</div>

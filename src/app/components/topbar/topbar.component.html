@@ -1,0 +1,61 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button
+      mat-mini-fab
+      color="primary"
+      (click)="previous.emit()"
+      aria-label="Example icon button with a delete icon"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <button
+      mat-mini-fab
+      color="primary"
+      (click)="next.emit()"
+      aria-label="Example icon button with a delete icon"
+    >
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+    <button mat-button (click)="setViewMode.emit(VIEW_MODE.DAY)">Day</button>
+    <button mat-button (click)="setViewMode.emit(VIEW_MODE.WEEK)">Week</button>
+    <button mat-button (click)="setViewMode.emit(VIEW_MODE.MONTH)">
+      Month
+    </button>
+    <span class="example-spacer"></span>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+    >
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <mat-form-field class="form-field">
+      <mat-label>Busqueda</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="value"
+        (keyup)="searchChanged.emit($event.target.value)"
+      />
+      <button
+        mat-button
+        *ngIf="value"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="value = ''"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </mat-toolbar-row>
+</mat-toolbar>
