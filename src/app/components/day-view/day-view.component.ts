@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  Output,
+  EventEmitter,
+  OnChanges,
+} from '@angular/core';
 import { Appointment } from '../../types/appointment.type';
 
 @Component({
@@ -6,15 +13,17 @@ import { Appointment } from '../../types/appointment.type';
   templateUrl: './day-view.component.html',
   styleUrls: ['./day-view.component.css'],
 })
-export class DayViewComponent implements OnInit {
+export class DayViewComponent implements OnChanges {
   @Input() date: Date;
   @Input() appointments: Array<Appointment>;
 
   @Output() public addAppointment = new EventEmitter<Date>();
   @Output() public updateAppointment = new EventEmitter<Appointment>();
   @Output() public removeAppointment = new EventEmitter<Appointment>();
-
+  newAppointments;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnChanges(simpleChanges: any) {
+    this.newAppointments = this.appointments;
+  }
 }

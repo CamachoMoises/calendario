@@ -1,9 +1,9 @@
-<mat-card *ngIf="appointments">
+<mat-card *ngIf="appointments" fxFill>
   {{ date | date: "dd/MM/yyyy" }}&nbsp;
-  <mat-card-content>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"  *ngIf="appointments?.length>0">
+  <mat-card-content >
+    <table mat-table fxFill [dataSource]="dataSource" class="mat-elevation-z8"  *ngIf="appointments?.length>0">
       <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef>input</th>
+        <th mat-header-cell *matHeaderCellDef>Descriocion</th>
         <td mat-cell *matCellDef="let element">
           <input
             matInput
@@ -36,4 +36,4 @@
 
 
 </mat-card>
-<button *ngIf="appointments" mat-button class="button-block" (click)="add()" >Add</button>
+<button *ngIf="appointments" fxFill mat-raised-button color="primary" (click)="add()" >Add</button>

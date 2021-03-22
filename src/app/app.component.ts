@@ -95,10 +95,10 @@ export class AppComponent implements OnInit {
     )
     .subscribe((val) => {
       this.filter = val;
-      console.log('fillter',val);
+
 
       this.appointments$.subscribe((val) => {
-        console.log('appoiment', val);
+
       });
     });
 

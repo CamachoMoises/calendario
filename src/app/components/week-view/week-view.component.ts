@@ -33,8 +33,6 @@ export class WeekViewComponent implements OnChanges {
         this.year,
         this.appointments || []
       );
-      console.log('days',this.days);
-
     }
   }
   private calculateDaysWithAppointments(
@@ -43,7 +41,7 @@ export class WeekViewComponent implements OnChanges {
     appointments: Array<Appointment>
   ): Array<DayWithAppointments> {
     let sundayM = moment().year(year).week(week).startOf('week');
-    console.log('sunday',sundayM);
+    console.log('sunday', sundayM);
 
     return Array.from({ length: 7 }, () => null).map((val, i) => {
       return {

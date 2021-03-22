@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+} from '@angular/core';
 import { Appointment } from '../../types/appointment.type';
 import * as moment from 'moment';
 
@@ -7,7 +14,7 @@ import * as moment from 'moment';
   templateUrl: './day-detail.component.html',
   styleUrls: ['./day-detail.component.css'],
 })
-export class DayDetailComponent implements OnInit {
+export class DayDetailComponent implements OnInit, OnChanges {
   @Input() date: Date;
   @Input() appointments: Array<Appointment>;
   editMode = false;
@@ -16,18 +23,17 @@ export class DayDetailComponent implements OnInit {
   @Output() public updateAppointment = new EventEmitter<Appointment>();
   @Output() public removeAppointment = new EventEmitter<Appointment>();
 
-  displayedColumns: string[] = ['description','date'];
-  dataSource:Appointment[]
+  displayedColumns: string[] = ['description', 'date'];
+  dataSource: Appointment[];
   constructor() {}
-  ngOnInit(): void {
-    this.dataSource=this.appointments
-    console.log('detail',this.appointments);
-
+  ngOnInit(): void {}
+  ngOnChanges() {
+    this.dataSource = this.appointments;
   }
   add(): void {
     this.addAppointment.emit(moment(this.date).toDate());
   }
   update(appointment: Appointment, $key: string) {
-    this.updateAppointment.emit(Object.assign({$key}, appointment));
-}
+    this.updateAppointment.emit(Object.assign({ $key }, appointment));
+  }
 }
