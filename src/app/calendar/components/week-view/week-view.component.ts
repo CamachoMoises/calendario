@@ -6,8 +6,8 @@ import {
   Output,
   OnChanges,
 } from '@angular/core';
-import { Appointment } from '../../types/appointment.type';
-import { DayWithAppointments } from '../../types/day-with-appointments.type';
+import { Appointment } from '../../../types/appointment.type';
+import { DayWithAppointments } from '../../../types/day-with-appointments.type';
 import * as moment from 'moment';
 
 @Component({

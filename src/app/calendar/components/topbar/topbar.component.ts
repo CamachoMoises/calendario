@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { VIEW_MODE } from '../../types/constants';
+import { VIEW_MODE } from '../../../types/constants';
 
 
 @Component({

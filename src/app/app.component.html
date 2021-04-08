@@ -1,37 +1,9 @@
-<app-topbar
-  (next)="onNext()"
-  (previous)="onPrevious()"
-  (setViewMode)="onSetViewMode($event)"
-  (searchChanged)="onSearchChanged($event)"
->
-  ></app-topbar
->
-<div class="main" [ngSwitch]="viewMode$ | async">
-  <app-day-view
-    *ngSwitchCase="VIEW_MODE.DAY"
-    [date]="currentDate$ | async"
-    [appointments]="filter"
-    (removeAppointment)="onRemoveAppointment($event)"
-    (addAppointment)="onAddAppointment($event)"
-    (updateAppointment)="onUpdateAppointment($event)"
-  ></app-day-view>
+<button mat-button [routerLink]="['/']">
+  Home
+</button>
+<button mat-button [routerLink]="['/calendario']">
+  Calendar
+</button>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet reiciendis provident ipsam consequuntur pariatur delectus architecto deserunt fugit minima natus. Aspernatur maiores quis dignissimos, dolorum ullam totam eum non nihil?</p>
+<router-outlet></router-outlet>
 
-  <app-week-view
-    *ngSwitchCase="VIEW_MODE.WEEK"
-    [year]="currentYear$ | async"
-    [week]="currentWeek$ | async"
-    [appointments]="filter"
-    (removeAppointment)="onRemoveAppointment($event)"
-    (addAppointment)="onAddAppointment($event)"
-    (updateAppointment)="onUpdateAppointment($event)"
-  ></app-week-view>
-  <app-month-view
-    *ngSwitchCase="VIEW_MODE.MONTH"
-    [month]="currentMonth$ | async"
-    [year]="currentYear$ | async"
-    [appointments]="filter"
-    (removeAppointment)="onRemoveAppointment($event)"
-    (addAppointment)="onAddAppointment($event)"
-    (updateAppointment)="onUpdateAppointment($event)"
-  ></app-month-view>
-</div>

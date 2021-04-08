@@ -6,7 +6,7 @@ import {
   EventEmitter,
   OnChanges,
 } from '@angular/core';
-import { Appointment } from '../../types/appointment.type';
+import { Appointment } from '../../../types/appointment.type';
 import * as moment from 'moment';
 
 @Component({

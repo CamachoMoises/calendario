@@ -6,7 +6,7 @@ import {
   EventEmitter,
   OnChanges,
 } from '@angular/core';
-import { Appointment } from '../../types/appointment.type';
+import { Appointment } from '../../../types/appointment.type';
 
 @Component({
   selector: 'app-day-view',
